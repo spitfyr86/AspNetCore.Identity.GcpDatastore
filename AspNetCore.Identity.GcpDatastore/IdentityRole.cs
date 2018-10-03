@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using Google.Cloud.Datastore.Driver.Serialization;
+using Google.Cloud.Datastore.Adapter.Serialization;
 
 namespace AspNetCore.Identity.GcpDatastore
 {

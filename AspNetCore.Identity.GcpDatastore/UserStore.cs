@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Google.Cloud.Datastore.Driver;
+using Google.Cloud.Datastore.Adapter;
 using Google.Cloud.Datastore.V1;
 
 namespace AspNetCore.Identity.GcpDatastore
@@ -35,7 +35,7 @@ namespace AspNetCore.Identity.GcpDatastore
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public IQueryable<TUser> Users => _dbContext.User.AsQueryable<TUser>();
+        public IQueryable<TUser> Users => _dbContext.User.AsQueryable();
 
         #region IUserStore implementations
 

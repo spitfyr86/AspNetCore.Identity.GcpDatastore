@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Google.Cloud.Datastore.Driver;
+using Google.Cloud.Datastore.Adapter;
 using Google.Cloud.Datastore.V1;
 using Microsoft.AspNetCore.Identity;
 
@@ -21,7 +21,7 @@ namespace AspNetCore.Identity.GcpDatastore
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public IQueryable<TRole> Roles => _dbContext.Role.AsQueryable<TRole>();
+        public IQueryable<TRole> Roles => _dbContext.Role.AsQueryable();
 
         public async Task<IdentityResult> CreateAsync(TRole role, CancellationToken cancellationToken)
         {

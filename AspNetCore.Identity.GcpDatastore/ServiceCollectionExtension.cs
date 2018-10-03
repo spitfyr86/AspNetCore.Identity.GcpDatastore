@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.IO;
 using Google.Apis.Auth.OAuth2;
-using Google.Cloud.Datastore.Driver;
+using Google.Cloud.Datastore.Adapter;
 using Google.Cloud.Datastore.V1;
 using Grpc.Auth;
 using Microsoft.AspNetCore.Identity;

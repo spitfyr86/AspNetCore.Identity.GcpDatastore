@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Google.Cloud.Datastore.Driver;
+using Google.Cloud.Datastore.Adapter;
 using Microsoft.Extensions.Options;
 
 namespace AspNetCore.Identity.GcpDatastore
