@@ -58,7 +58,7 @@ namespace AspNetCore.Identity.GcpDatastore
 
         public Task<TUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            return _dbContext.User.GetAsync(Convert.ToInt64(userId));
+            return _dbContext.User.FindAsync(Convert.ToInt64(userId));
         }
 
         public Task<TUser> FindByLoginAsync(string loginProvider, string providerKey, CancellationToken cancellationToken)
