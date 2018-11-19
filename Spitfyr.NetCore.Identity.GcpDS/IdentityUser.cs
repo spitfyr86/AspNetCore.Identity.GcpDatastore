@@ -5,7 +5,7 @@ using Spitfyr.GCP.Datastore.Adapter.Serialization;
 
 namespace Spitfyr.NetCore.Identity.GcpDS
 {
-    [Kind("User")]
+    [Kind("Users")]
     public class IdentityUser : LongIdDatastoreEntity
     {
         public IdentityUser(string userName, string email)

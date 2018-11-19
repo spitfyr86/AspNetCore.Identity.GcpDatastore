@@ -23,9 +23,9 @@ namespace Spitfyr.NetCore.Identity.GcpDS
         {
             services.AddTransient(provider =>
             {
-                var options = provider.GetService<IOptions<GcpDatastoreOption>>();
+                var option = provider.GetService<IOptions<GcpDatastoreOption>>();
 
-                using (var stream = new FileStream(options.Value.CredentialsFilePath, FileMode.Open))
+                using (var stream = new FileStream(option.Value.CredentialsFilePath, FileMode.Open))
                 {
                     var googleCredential = GoogleCredential.FromStream(stream);
                     var channel = new Grpc.Core.Channel(
@@ -33,8 +33,8 @@ namespace Spitfyr.NetCore.Identity.GcpDS
                         googleCredential.ToChannelCredentials());
                     
                     var client = DatastoreClient.Create(channel);
-                    var datastoreDb = DatastoreDb.Create(options.Value.ProjectId, options.Value.Namespace, client);
-                    IDatastoreDatabase database = new DatastoreDatabase(datastoreDb);
+                    var datastoreDb = DatastoreDb.Create(option.Value.ProjectId, option.Value.Namespace, client);
+                    IDatastoreDatabase database = new DatastoreDatabase(datastoreDb, option.Value.EntityPrefix);
                     return database;
                 }
             });
