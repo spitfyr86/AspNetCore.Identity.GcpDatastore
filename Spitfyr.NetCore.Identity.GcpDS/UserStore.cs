@@ -55,6 +55,8 @@ namespace Spitfyr.NetCore.Identity.GcpDS
 
         public Task<TUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
+            Console.WriteLine($"UserStore.FindByIdAsync - userId: {userId}");
+
             if (string.IsNullOrEmpty(userId))
                 userId = "0";
 
