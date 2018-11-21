@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dennis Laping</Authors>
     <Company>VSS I.T. Development</Company>
@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/spitfyr86/AspNetCore.Identity.GcpDatastore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/spitfyr86/AspNetCore.Identity.GcpDatastore.git</RepositoryUrl>
     <PackageTags>spitfyr AspNetCore identity gcp datastore</PackageTags>
-    <PackageReleaseNotes>Updated Datastore adapter and integrated entity prefix option.</PackageReleaseNotes>
+    <PackageReleaseNotes>Bugfix for UserStore.FindByIdAsync FormatException</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
