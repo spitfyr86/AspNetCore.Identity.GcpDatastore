@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/spitfyr86/AspNetCore.Identity.GcpDatastore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/spitfyr86/AspNetCore.Identity.GcpDatastore.git</RepositoryUrl>
     <PackageTags>spitfyr AspNetCore identity gcp datastore</PackageTags>
-    <PackageReleaseNotes>Bugfix for UserStore.FindByIdAsync FormatException</PackageReleaseNotes>
+    <PackageReleaseNotes>Modified IDatastoreDatabase configuration as a singleton service.</PackageReleaseNotes>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
