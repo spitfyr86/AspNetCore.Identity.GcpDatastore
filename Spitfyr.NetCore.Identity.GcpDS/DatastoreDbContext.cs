@@ -7,7 +7,7 @@ namespace Spitfyr.NetCore.Identity.GcpDS
         where TUser : IdentityUser
         where TRole : IdentityRole
     {
-        public DatastoreDbContext(IDatastoreDatabase database, IOptions<GcpDatastoreOption> option)
+        public DatastoreDbContext(IDatastoreDatabase database, IOptions<DatastoreOption> option)
         {
             User = database.GetKind<TUser>(option.Value.User.Kind);
             Role = database.GetKind<TRole>(option.Value.Role.Kind);

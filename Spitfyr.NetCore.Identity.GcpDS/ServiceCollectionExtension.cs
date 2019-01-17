@@ -12,27 +12,27 @@ namespace Spitfyr.NetCore.Identity.GcpDS
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection ConfigureDatastoreDbOption(this IServiceCollection services, Action<GcpDatastoreOption> configure)
+        public static IServiceCollection ConfigureDatastoreDbOption(this IServiceCollection services, Action<DatastoreOption> configure)
         {
             services.Configure(configure);
 
             return services;
         }
 
-        public static IServiceCollection AddGcpDatastoreDatabase(this IServiceCollection services)
+        public static IServiceCollection AddGcpDatastoreDatabase(this IServiceCollection services, DatastoreOption dsOption)
         {
             services.AddSingleton(provider =>
             {
-                var option = provider.GetService<IOptions<GcpDatastoreOption>>();
+                //var option = provider.GetService<IOptions<DatastoreOption>>();
                 
-                var googleCredential = GoogleCredential.FromFile(option.Value.CredentialsFilePath);
+                var googleCredential = GoogleCredential.FromFile(dsOption.CredentialsFilePath);
                 var channel = new Grpc.Core.Channel(
                     DatastoreClient.DefaultEndpoint.Host,
                     googleCredential.ToChannelCredentials());
 
                 var client = DatastoreClient.Create(channel);
-                var datastoreDb = DatastoreDb.Create(option.Value.ProjectId, option.Value.Namespace, client);
-                IDatastoreDatabase database = new DatastoreDatabase(datastoreDb, option.Value.EntityPrefix);
+                var datastoreDb = DatastoreDb.Create(dsOption.ProjectId, dsOption.Namespace, client);
+                IDatastoreDatabase database = new DatastoreDatabase(datastoreDb, dsOption.EntityPrefix);
                 return database;
             });
 

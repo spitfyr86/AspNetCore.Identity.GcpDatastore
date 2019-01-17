@@ -1,6 +1,6 @@
 ﻿namespace Spitfyr.NetCore.Identity.GcpDS
 {
-    public class GcpDatastoreOption
+    public class DatastoreOption
     {
         public string CredentialsFilePath { get; set; }
         public string ProjectId { get; set; }
