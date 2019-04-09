@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <Version>1.0.0.5</Version>
+    <Version>1.0.0.6</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dennis Laping</Authors>
     <Company>VSS I.T. Development</Company>
@@ -21,7 +21,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.6" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
-    <PackageReference Include="Spitfyr.GCP.Datastore.Adapter" Version="1.0.0.4" />
+    <PackageReference Include="Spitfyr.GCP.Datastore.Adapter" Version="1.0.0.5" />
   </ItemGroup>
 
 </Project>
