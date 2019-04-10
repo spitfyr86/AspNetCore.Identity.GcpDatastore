@@ -65,21 +65,20 @@ namespace Sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            // Add framework services.
-            /*services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();*/
-
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddDefaultTokenProviders();
 
+            var credentialsFilePath = Configuration.GetValue<string>("CredentialsFilePath");
+            var projectId = Configuration.GetValue<string>("ProjectId");
+            var @namespace = Configuration.GetValue<string>("Namespace");
+
             services
-                .Configure<GcpDatastoreOption>(Configuration.GetSection("GcpDatastoreOption"))
-                .AddGcpDatastoreDatabase()
+                .AddGcpDatastoreDatabase(new DatastoreOption
+                {
+                    CredentialsFilePath = credentialsFilePath,
+                    ProjectId = projectId,
+                    Namespace = @namespace
+                })
                 .AddGcpDatastoreDbContext<ApplicationUser, IdentityRole>()
                 .AddGcpDatastoreStore<ApplicationUser, IdentityRole>();
 
