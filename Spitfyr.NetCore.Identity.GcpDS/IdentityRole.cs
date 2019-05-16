@@ -6,7 +6,7 @@ namespace Spitfyr.NetCore.Identity.GcpDS
     /// <summary>
     /// Represents a role in the identity system
     /// </summary>
-    [Kind("Role")]
+    [Kind("Roles")]
     public class IdentityRole : LongIdDatastoreEntity
     {
         /// <summary>
